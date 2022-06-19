@@ -1,0 +1,52 @@
+<mvc:View xmlns:f2="sap.f" xmlns:core="sap.ui.core" controllerName="rcAdminApp.controller.VeranstaltungView" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" busyIndicatorDelay="0">
+	<Page id="employeePage" title="" showNavButton="true" navButtonPress=".onNavBack" class="sapUiResponsiveContentPadding">
+		<customHeader>
+            <f2:ShellBar title="{i18n>Veranstaltung}" secondTitle="{i18n>SecondaryTitle}" showNavButton="true" navButtonPressed=".onNavBack">
+                <f2:menu>
+                    <Menu >
+                        <MenuItem text="Home" press=".onNavBack" icon="sap-icon://home"/>
+						<MenuItem text="Veranstaltungen" press=".onNavBack" icon="sap-icon://home"/>
+                    </Menu>
+                </f2:menu>
+            </f2:ShellBar>
+        </customHeader>
+		<content>
+			<Panel id="employeePanel" width="auto" class="sapUiResponsiveMargin sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>Veranstaltung}" level="H2" />
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+						<f:content>
+							<Label text="{i18n>fieldId}" />
+							<Text text="{Id}" />
+							<Label text="{i18n>fieldDatum}" />
+							<DatePicker value="{Datum}"></DatePicker>
+							<Label text="{i18n>fieldZeit}" />
+							<TimePicker value="{Zeit}"></TimePicker>
+							<Label text="{i18n>fieldBerufsfeld}" />
+							<Select selectedKey="{Berufsfeld}" items="{/Berufsfelder}" forceSelection="false">
+								<core:Item key="{Id}" text="{Name}"></core:Item>
+							</Select>
+							<Label text="{i18n>fieldReferent}" />
+							<Select selectedKey="{Referent}" items="{/Referenten}" forceSelection="false">
+								<core:Item key="{Id}" text="{Name}"></core:Item>
+							</Select>
+							<Label text="{i18n>fieldBeschreibung}" />
+							<TextArea value="{Beschreibung}" />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+            <Toolbar visible="{appView>/hasUIChanges}">
+                <ToolbarSpacer />
+                <Button id="helpButton" press=".onShowHelp" icon="sap-icon://sys-help" />
+            </Toolbar>
+        </footer>
+	</Page>
+</mvc:View>

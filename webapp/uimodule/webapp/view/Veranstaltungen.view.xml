@@ -1,0 +1,83 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:f="sap.f" controllerName="rcAdminApp.controller.VeranstaltungenView" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+
+    <Page title="Berufsinformation 2022" showNavButton="true" showHeader="true" showFooter="true">
+        <customHeader>
+            <f:ShellBar title="{i18n>Veranstaltungen}" secondTitle="{i18n>SecondaryTitle}" showNavButton="true" navButtonPressed=".onNavBack">
+                <f:menu>
+                    <Menu >
+                        <MenuItem text="Home" press=".onNavBack" icon="sap-icon://home"/>
+                    </Menu>
+                </f:menu>
+            </f:ShellBar>
+        </customHeader>
+        <content>
+            <layout:VerticalLayout class="sapUiContentPadding">
+
+                <Table id="veranstaltungenList" headerText="Veranstaltungen" items="{/Veranstaltungen}" itemPress=".onDetail" mode="SingleSelectLeft">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <ToolbarSpacer />
+                                <SearchField id="searchField" width="20%" placeholder="{i18n>searchFieldPlaceholder}" enabled="{= !${appView>/hasUIChanges}}" search=".onSearch" />
+                                <Button id="addUserButton" icon="sap-icon://add" tooltip="{i18n>createButtonText}" press=".onCreate">
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                    </layoutData>
+                                </Button>
+                                <Button id="deleteUserButton" icon="sap-icon://delete" tooltip="{i18n>deleteButtonText}" press=".onDelete">
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                    </layoutData>
+                                </Button>
+                                <Button id="refreshUsersButton" icon="sap-icon://refresh" enabled="{= !${appView>/hasUIChanges}}" tooltip="{i18n>refreshButtonText}" press=".onRefresh" />
+                                <Button id="sortUsersButton" icon="sap-icon://sort" enabled="{= !${appView>/hasUIChanges}}" tooltip="{i18n>sortButtonText}" press=".onSort" />
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column id="userNameColumn">
+                            <Text text="Id" />
+                        </Column>
+                        <Column id="firstNameColumn">
+                            <Text text="Beschreibung" />
+                        </Column>
+                        <Column id="dateColumn">
+                            <Text text="Datum" />
+                        </Column>
+                        <Column id="timeColumn">
+                            <Text text="Uhrzeit" />
+                        </Column>
+                        <Column id="berufsfeldColumn">
+                            <Text text="Berufsfeld" />
+                        </Column>
+                        <Column id="referentColumn">
+                            <Text text="Referent" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Active">
+                            <cells>
+                                <Text text="{Id}" />
+                                <Input value="{Beschreibung}" />
+                                <DatePicker value="{Datum}"></DatePicker>
+                                <TimePicker value="{Zeit}"></TimePicker>
+                                <Select selectedKey="{Berufsfeld}" items="{/Berufsfelder}">
+                                    <core:Item key="{Id}" text="{Name}" />
+                                </Select>
+                                <Select selectedKey="{Referent}" items="{/Referenten}">
+                                    <core:Item key="{Id}" text="{Name}"/>
+                                </Select>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </layout:VerticalLayout>
+        </content>
+        <footer>
+            <Toolbar visible="{appView>/hasUIChanges}">
+                <ToolbarSpacer />
+                <Button id="helpButton" press=".onShowHelp" icon="sap-icon://sys-help" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

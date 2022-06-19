@@ -1,0 +1,164 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "rcAdminApp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "dataSources": {
+			"default": {
+				"uri": "http://localhost:8080/odata/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0"
+				}
+			}
+		}
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.60",
+      "libs": {
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "rcAdminApp.i18n.i18n"
+        }
+      },
+      "": {
+				"dataSource": "default",
+				"settings": {
+					"autoExpandSelect": true,
+					"operationMode": "Server",
+					"groupId": "$direct",
+					"synchronizationMode": "None"
+				}
+			}
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "rcAdminApp.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "appHome",
+          "pattern": "",
+          "target": "home"
+        },
+        {
+          "name": "veranstaltungen",
+          "pattern": "veranstaltungen",
+          "target": "veranstaltungen"
+        },
+        {
+          "name": "notFound",
+          "pattern": "notFound",
+          "target": "notFound"
+        },
+        {
+          "name": "veranstaltung",
+          "pattern": "veranstaltungen/{id}",
+          "target": "veranstaltung"
+        },
+        {
+          "name": "anmeldungen",
+          "pattern": "anmeldungen",
+          "target": "anmeldungen"
+        },
+        {
+          "name": "berufsfelder",
+          "pattern": "berufsfelder",
+          "target": "berufsfelder"
+        },
+        {
+          "name": "info",
+          "pattern": "information",
+          "target": "info"
+        }
+      ],
+      "targets": {
+        "home": {
+          "viewId": "mainView",
+          "viewName": "MainView",
+          "viewLevel": 1
+        },
+        "notFound": {
+          "viewId": "notFound",
+          "viewName": "NotFound",
+          "transition": "show"
+        },
+        "html": {
+          "viewId": "html",
+          "viewName": "Html",
+          "transition": "fade"
+        },
+        "info": {
+          "viewId": "info",
+          "viewName": "Informationen",
+          "transition": "fade"
+        },
+        "anmeldungen": {
+          "viewId": "anmeldungen",
+          "viewName": "Anmeldungen",
+          "transition": "fade"
+        },
+        "veranstaltungen": {
+          "viewId": "veranstaltungen",
+          "viewName": "Veranstaltungen",
+          "transition": "fade"
+        },
+        "veranstaltung": {
+          "viewId": "veranstaltung",
+          "viewName": "Veranstaltung",
+          "transition": "fade"
+        },
+        "berufsfelder": {
+          "viewId": "berufsfelder",
+          "viewName": "Berufsfelder",
+          "transition": "fade"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "rcAdminApp.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<mvc:View xmlns:layout="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:f="sap.f" controllerName="rcAdminApp.controller.BerufsfelderView" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+
+    <Page title="Berufsfelder" showNavButton="true" showHeader="true" showFooter="true">
+        <customHeader>
+            <f:ShellBar title="{i18n>Berufsfelder}" secondTitle="{i18n>SecondaryTitle}" showNavButton="true" navButtonPressed=".onNavBack">
+                <f:menu>
+                    <Menu >
+                        <MenuItem text="{i18n>Home}" press=".onNavBack" icon="sap-icon://home"/>
+                    </Menu>
+                </f:menu>
+            </f:ShellBar>
+        </customHeader>
+        <content>
+            <layout:VerticalLayout class="sapUiContentPadding">
+
+                <Table id="berufsfelderList" headerText="Berufsfelder" items="{/Berufsfelder}"
+                       itemPress=".onAbc"
+                       mode="SingleSelectLeft">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <ToolbarSpacer/>
+                                <SearchField
+                                        id="searchField"
+                                        width="20%"
+                                        placeholder="{i18n>searchFieldPlaceholder}"
+                                        enabled="{= !${appView>/hasUIChanges}}"
+                                        search=".onSearch"/>
+                                <Button
+                                        id="addUserButton"
+                                        icon="sap-icon://add"
+                                        tooltip="{i18n>createButtonText}"
+                                        press=".onCreate">
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="NeverOverflow"/>
+                                    </layoutData>
+                                </Button>
+                                <Button
+                                        id="deleteUserButton"
+                                        icon="sap-icon://delete"
+                                        tooltip="{i18n>deleteButtonText}"
+                                        press=".onDelete">
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="NeverOverflow"/>
+                                    </layoutData>
+                                </Button>
+                                <Button
+                                        id="refreshUsersButton"
+                                        icon="sap-icon://refresh"
+                                        enabled="{= !${appView>/hasUIChanges}}"
+                                        tooltip="{i18n>refreshButtonText}"
+                                        press=".onRefresh"/>
+                                <Button
+                                        id="sortUsersButton"
+                                        icon="sap-icon://sort"
+                                        enabled="{= !${appView>/hasUIChanges}}"
+                                        tooltip="{i18n>sortButtonText}"
+                                        press=".onSort"/>
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column id="IdColumn">
+                            <Text text="Id"/>
+                        </Column>
+                        <Column id="NameColumn">
+                            <Text text="Name"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Active">
+                            <cells>
+                                <Text text="{Id}"/>
+                                <Input value="{Name}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </layout:VerticalLayout>
+        </content>
+        <footer>
+            <Toolbar visible="{appView>/hasUIChanges}">
+                <ToolbarSpacer/>
+                
+                <Button
+                        id="helpButton"
+                        press=".onShowHelp"
+                        icon="sap-icon://sys-help"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

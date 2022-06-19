@@ -1,0 +1,62 @@
+<mvc:View xmlns:layout="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:f="sap.f" controllerName="rcAdminApp.controller.MainView" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+
+    <Page title="Club Admin"  showNavButton="false" showHeader="true" showFooter="true">
+        <customHeader>
+            <f:ShellBar title="{i18n>Home}" secondTitle="{i18n>SecondaryTitle}"  ></f:ShellBar>    
+        </customHeader>
+    
+        <content>
+            <IconTabBar headerMode="Inline"  class="sapUiResponsiveContentPadding" >
+                <items>
+                    <IconTabFilter id="berufsinfo" text="Berufsinfo">
+                        <f:GridContainer id="_IDGenGridContainer2" class="sapUiSmallMargin">
+                            <f:layout>
+                                <f:GridContainerSettings id="_IDGenGridContainerSettings1" rowSize="84px" columnSize="84px" gap="8px" />
+                            </f:layout>
+                            <f:layoutXS>
+                                <f:GridContainerSettings id="_IDGenGridContainerSettings2" rowSize="70px" columnSize="70px" gap="8px" />
+                            </f:layoutXS>
+                          
+                            <GenericTile id="veranstaltungen-tile" header="Veranstaltungen"  subheader="planen" press=".onVeranstaltungen" >
+                                <layoutData>
+                                    <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                                </layoutData>
+                                <TileContent>
+                                    <ImageContent src="sap-icon://home-share" />
+                                </TileContent>
+                            </GenericTile>
+                            <GenericTile id="berufsfelder-tile" header="Berufsfelder" subheader="plegen" press=".onBerufsfelder">
+                                <layoutData>
+                                    <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                                </layoutData>
+                                <TileContent>
+                                    <ImageContent src="sap-icon://activity-items" />
+                                </TileContent>
+                            </GenericTile>
+                            <GenericTile id="referenten-tile"  header="Referenten" subheader="pflegen" press=".onReferenten">
+                                <layoutData>
+                                    <f:GridContainerItemLayoutData id="_IDGenGridContainerItemLayoutData4" minRows="2" columns="2" />
+                                </layoutData>
+                                <TileContent>
+                                    <ImageContent src="sap-icon://personnel-view" />
+                                </TileContent>
+                            </GenericTile>
+                        </f:GridContainer>
+                    </IconTabFilter>
+                </items>     
+            </IconTabBar>
+           
+        </content>
+        <footer>
+            <Toolbar visible="{appView>/hasUIChanges}">
+                <ToolbarSpacer/>
+                
+                <Button
+                        id="helpButton"
+                        press=".onShowHelp"
+                        icon="sap-icon://sys-help"/>
+            </Toolbar>
+        </footer>
+        
+    </Page>
+</mvc:View>
