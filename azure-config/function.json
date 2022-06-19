@@ -1,6 +1,6 @@
 {
   "scriptFile": "../${project.build.finalName}.jar",
-  "entryPoint": "net.moewes.azure.Function.run",
+  "entryPoint": "io.quarkus.azure.functions.resteasy.runtime.Function.run",
   "bindings": [
     {
       "type": "httpTrigger",
