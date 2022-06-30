@@ -24,7 +24,7 @@
         <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
         <lombok.version>1.18.22</lombok.version>
 
-        <azure.functions.maven.plugin.version>1.18.0</azure.functions.maven.plugin.version>
+        <azure.functions.maven.plugin.version>1.19.0</azure.functions.maven.plugin.version>
         <!--suppress UnresolvedMavenProperty -->
         <functionAppName>${alpha2.azure.functionAppName}</functionAppName>
         <!--suppress UnresolvedMavenProperty -->
