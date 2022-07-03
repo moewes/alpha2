@@ -49,6 +49,40 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>github_quarkus_cloudui</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/moewes/cloud-ui-quarkus</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>github_cloudui_ui5</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/moewes/cloud-ui-ui5</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>github_quarkus_odata</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/moewes/odata</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>github_quarkus_aztablestorage</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/moewes/azure_table_storage</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>com.microsoft.azure.functions</groupId>
@@ -85,11 +119,6 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-azure-functions-http</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.moewes</groupId>
-            <artifactId>quarkus-azure-functions-oidc-workaround</artifactId>
-            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>net.moewes</groupId>
