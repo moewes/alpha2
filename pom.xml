@@ -104,17 +104,17 @@
         <dependency>
             <groupId>net.moewes</groupId>
             <artifactId>cloud-ui-quarkus-extension</artifactId>
-            <version>0.3.0-SNAPSHOT</version>
+            <version>0.3.0</version>
         </dependency>
         <dependency>
             <groupId>net.moewes</groupId>
             <artifactId>cloud-ui-ui5</artifactId>
-            <version>0.3.0-SNAPSHOT</version>
+            <version>0.3.0</version>
         </dependency>
         <dependency>
             <groupId>net.moewes</groupId>
             <artifactId>quarkus-odata</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>0.1.0</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -123,7 +123,7 @@
         <dependency>
             <groupId>net.moewes</groupId>
             <artifactId>azure-table-storage</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>0.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
